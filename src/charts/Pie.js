@@ -36,13 +36,9 @@ class Pie extends React.Component {
     pieSeries.slices.template.strokeWidth = 1;
     pieSeries.slices.template.strokeOpacity = 0.5;
     //default info disabled
+    pieSeries.labels.template.disabled = true;
     pieSeries.ticks.template.disabled = true;
     pieSeries.slices.template.tooltipText = "";
-
-    pieSeries.alignLabels = false;
-    pieSeries.labels.template.text = "{value.percent.formatNumber('#.0')}%";
-    pieSeries.labels.template.radius = am4core.percent(-25);
-    pieSeries.labels.template.fill = am4core.color("white");
 
     let hs = pieSeries.slices.template.states.getKey("hover");
     hs.properties.scale = 1;
@@ -54,7 +50,7 @@ class Pie extends React.Component {
     let pieSeries2 = chart.series.push(new am4charts.PieSeries3D());
     pieSeries2.dataFields.value = "bottles";
     pieSeries2.dataFields.depthValue = "bottles";
-    pieSeries2.dataFields.radiusValue = "bottles";
+    //pieSeries2.dataFields.radiusValue = "bottles";
     pieSeries2.dataFields.category = "country";
     pieSeries2.slices.template.fillOpacity = 1;
     //stroke config
@@ -62,9 +58,14 @@ class Pie extends React.Component {
     pieSeries2.slices.template.strokeWidth = 1;
     pieSeries2.slices.template.strokeOpacity = 0.5;
     //default info disabled
-    pieSeries2.labels.template.disabled = true;
-    pieSeries2.ticks.template.disabled = true;
+    //pieSeries2.labels.template.disabled = true;
+    //pieSeries2.ticks.template.disabled = true;
     pieSeries2.slices.template.tooltipText = "";
+
+    pieSeries2.alignLabels = false;
+    pieSeries2.labels.template.text = "{value.percent.formatNumber('#.0')}%";
+    pieSeries2.labels.template.radius = am4core.percent(5);
+    pieSeries2.labels.template.fill = am4core.color("#999");
     
     let hs2 = pieSeries2.slices.template.states.getKey("hover");
     hs2.properties.scale = 1;

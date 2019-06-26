@@ -25,7 +25,16 @@ class XY extends React.Component {
 
     let categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
     categoryAxis.dataFields.category = "country";
-    categoryAxis.title.text = "Countries";
+    //categoryAxis.title.text = "Countries";
+    categoryAxis.renderer.grid.template.location = 0;
+    categoryAxis.renderer.minGridDistance = 30;
+    categoryAxis.renderer.labels.template.adapter.add("dy", function(dy, target) {
+      if (target.dataItem && ((target.dataItem.index %2)!== 1)) {
+        return dy + 15;
+      }
+      return dy;
+    });
+    
 
     let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
     valueAxis.title.text = "Litres sold (M)";
@@ -55,16 +64,20 @@ class XY extends React.Component {
   xyChart2 = () => {
     let chart2 = am4core.create("xychart2", am4charts.XYChart);
     chart2.data = data;
+    chart2.legend = new am4charts.Legend();
 
     let categoryAxis = chart2.xAxes.push(new am4charts.CategoryAxis());
     categoryAxis.dataFields.category = "country";
     categoryAxis.title.text = "Countries";
+    categoryAxis.renderer.minGridDistance = 30;
+    categoryAxis.startLocation = 0.5;
+    categoryAxis.endLocation = 0.5;
 
     let valueAxis = chart2.yAxes.push(new am4charts.ValueAxis());
     valueAxis.title.text = "Litres sold (M)";
 
     let series = chart2.series.push(new am4charts.LineSeries());
-    series.data = data;
+    
     series.name = "Sales";
     series.dataFields.valueY = "litres";
     series.dataFields.categoryX = "country";
@@ -79,7 +92,7 @@ class XY extends React.Component {
     bullet1.fill = am4core.color("#104547");
 
     let series2 = chart2.series.push(new am4charts.LineSeries());
-    series2.data = data;
+    
     series2.name = "bottles";
     series2.dataFields.valueY = "bottles";
     series2.dataFields.categoryX = "country";
