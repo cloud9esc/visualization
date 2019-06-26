@@ -1,8 +1,9 @@
 import React from 'react';
 
-import Gauge from './Gauge';
+import Pie from '../src/charts/Pie';
+import Gauge from '../src/charts/Gauge';
 import './App.css';
-import Pie from './Pie';
+import XY from './charts/XY';
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
     <div className="App">
       <Gauge />
       <Pie />
+      <XY />
     </div>
   );
 }

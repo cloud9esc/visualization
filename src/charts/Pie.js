@@ -22,22 +22,27 @@ class Pie extends React.Component {
   pieChart = () => {
     let chart = am4core.create("piediv", am4charts.PieChart3D);
     chart.data = data;
-    chart.innerRadius = am4core.percent(40);
-    //chart.legend = new am4charts.Legend();
+    chart.innerRadius = am4core.percent(30);
+    chart.legend = new am4charts.Legend();
+    chart.legend.position = "right";
 
     let pieSeries = chart.series.push(new am4charts.PieSeries3D());
     pieSeries.dataFields.value = "litres";
     pieSeries.dataFields.depthValue = "litres";
     pieSeries.dataFields.category = "country";
     pieSeries.slices.template.fillOpacity = 1;
-
+    //stroke config
     pieSeries.slices.template.stroke = am4core.color('#fff');
     pieSeries.slices.template.strokeWidth = 1;
     pieSeries.slices.template.strokeOpacity = 0.5;
-
-    pieSeries.labels.template.disabled = true;
+    //default info disabled
     pieSeries.ticks.template.disabled = true;
     pieSeries.slices.template.tooltipText = "";
+
+    pieSeries.alignLabels = false;
+    pieSeries.labels.template.text = "{value.percent.formatNumber('#.0')}%";
+    pieSeries.labels.template.radius = am4core.percent(-25);
+    pieSeries.labels.template.fill = am4core.color("white");
 
     let hs = pieSeries.slices.template.states.getKey("hover");
     hs.properties.scale = 1;
@@ -49,6 +54,7 @@ class Pie extends React.Component {
     let pieSeries2 = chart.series.push(new am4charts.PieSeries3D());
     pieSeries2.dataFields.value = "bottles";
     pieSeries2.dataFields.depthValue = "bottles";
+    pieSeries2.dataFields.radiusValue = "bottles";
     pieSeries2.dataFields.category = "country";
     pieSeries2.slices.template.fillOpacity = 1;
     //stroke config
