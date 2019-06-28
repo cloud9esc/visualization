@@ -2,8 +2,9 @@ import React from 'react';
 
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
-
+import { am4themes_smallTheme} from '../Theme';
 import './XY.scss';
+
 
 class XY extends React.Component {
   componentDidMount() {
@@ -59,6 +60,7 @@ class XY extends React.Component {
   }
 
   xyChart2 = () => {
+    am4core.useTheme(am4themes_smallTheme);
     let chart2 = am4core.create("xychart2", am4charts.XYChart);
     chart2.data = data;
     chart2.legend = new am4charts.Legend();

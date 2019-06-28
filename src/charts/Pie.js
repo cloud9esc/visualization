@@ -2,23 +2,21 @@ import React from 'react';
 
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
-import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 
 import './Pie.scss';
 
-am4core.useTheme(am4themes_animated);
 
 class Pie extends React.Component {
   componentDidMount() {
     this.pieChart();
   };
-
+  
   componentWillUnmount() {
     if (this.chart) {
       this.chart.dispose();
     }
   }
-
+  
   pieChart = () => {
     let chart = am4core.create("piediv", am4charts.PieChart3D);
     chart.data = data;
