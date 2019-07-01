@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 
 import * as am4core from "@amcharts/amcharts4/core";
@@ -47,8 +48,16 @@ class Gauge extends React.Component {
     hand.fill = am4core.color("#2D93AD");
     hand.stroke = am4core.color("#2D93AD");
     hand.radius = am4core.percent(70);
-    hand.showValue(Math.round(Math.random()*100));
+    hand.value = 50;
     
+    setInterval(() => {
+      let value = Math.round(Math.random() * 100);
+      let animation = new am4core.Animation(hand,
+        {
+          property: "value",
+          to: value
+        }, 1000, am4core.ease.cubicInOut).start();
+    }, 2000);
 
     this.chart = chart;
   }
