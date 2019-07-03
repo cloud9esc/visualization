@@ -9,6 +9,8 @@ import Gauge from '../src/charts/Gauge';
 import './App.css';
 import XY from './charts/XY';
 import Radar from './charts/Radar';
+import Sankey from './charts/Sankey';
+import Candle from './charts/Candle';
 
 am4core.useTheme(am4themes_animated);
 am4core.useTheme(am4themes_myTheme);
@@ -20,9 +22,9 @@ function App() {
       <Gauge />
       <Pie />
       <XY />
-      <div>
-        <Radar />
-      </div>
+      <Radar />
+      <Sankey />
+      <Candle />
     </div>
   );
 }

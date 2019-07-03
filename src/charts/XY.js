@@ -207,8 +207,8 @@ class XY extends React.Component {
     series.dataFields.valueY = "p19";
     series.dataFields.dateX = "date";
     series.tooltipText = "{name}: {valueY}";
-    //series.stroke = am4core.color("#104547");
     series.tensionX = 0.8;
+    series.stroke = am4core.color("#34aa45");
     series.strokeOpacity = 1;
     series.strokeWidth = 1;
 
@@ -218,8 +218,8 @@ class XY extends React.Component {
     series2.dataFields.valueY = "p20";
     series2.dataFields.dateX = "date";
     series2.tooltipText = "{name}: {valueY}";
-    //series2.stroke = am4core.color('#CDA2AB');
     series2.tensionX = 0.8;
+    series2.stroke = am4core.color('#dd4444');
     series2.strokeOpacity = 1;
     series2.strokeWidth = 1;
 

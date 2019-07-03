@@ -43,7 +43,7 @@ class Radar extends React.Component {
     series2.strokeWidth = 0;
     
     series2.columns.template.tooltipText = "Series: {name}\nCategory: {categoryX}\nValue: {valueY}";
-
+    am4core.unuseTheme(am4themes_smallTheme);
   }
   render() {
     return (

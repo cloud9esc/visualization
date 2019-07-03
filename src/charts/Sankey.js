@@ -2,6 +2,7 @@ import React from 'react';
 
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
+//import { am4themes_myTheme } from '../Theme';
 
 import './Sankey.scss';
 
@@ -11,20 +12,40 @@ export default class Sankey extends React.Component {
   }
 
   componentWillUnmount() {
-    if(this.chart) {
+    if (this.chart) {
       this.chart.dispose();
     }
   }
 
   sankeyChart = () => {
+    //am4core.useTheme(am4themes_myTheme);
     let chart = am4core.create("sankey", am4charts.SankeyDiagram);
     chart.data = data;
+
+    chart.dataFields.fromName = "from";
+    chart.dataFields.toName = "to";
+    chart.dataFields.value = "value";
+
+    let nodeTemplate = chart.nodes.template;
+    nodeTemplate.width = 30;
+    //nodeTemplate.stroke = am4core.color("#fff");
+    //odeTemplate.strokeWidth = 2;
+    nodeTemplate.nameLabel.locationX = 0.2;
+    nodeTemplate.nameLabel.label.fill = am4core.color("#fff");
+    nodeTemplate.nameLabel.label.fontWeight = "bold";
+
+    let linkTemplate = chart.links.template;
+    // linkTemplate.controlPointDistance = 0.5;
+    linkTemplate.colorMode = "gradient";
+    linkTemplate.fillOpacity = 0.2;
+
   }
-  
+
   render() {
     return (
       <div className="Sankey">
-        <div id="sankey"></div>
+        <h1>it is Sankey diagram .</h1>
+        <div id="sankey" className="Sankey__chart"></div>
       </div>
     )
   }

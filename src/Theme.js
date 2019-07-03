@@ -14,8 +14,8 @@ function am4themes_myTheme(target) {
     ];
   }
   if (target instanceof am4core.InterfaceColorSet) {
-    target.setFor("grid", am4core.color("#999"));
-    target.setFor("text", am4core.color("#999"));
+    target.setFor("grid", am4core.color("#bbb"));
+    target.setFor("text", am4core.color("#aaa"));
     
   }
 }
@@ -29,8 +29,8 @@ function am4themes_smallTheme(target) {
     ];
   }
   if (target instanceof am4core.InterfaceColorSet) {
-    target.setFor("grid", am4core.color("#999"));
-    target.setFor("text", am4core.color("#999"));
+    target.setFor("grid", am4core.color("#bbb"));
+    target.setFor("text", am4core.color("#aaa"));
     
   }
 }
