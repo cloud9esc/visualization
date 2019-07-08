@@ -31,10 +31,10 @@ export default class Candle extends React.Component {
 
     let series = chart.series.push(new am4charts.CandlestickSeries());
     series.dataFields.dateX = "date";
-    series.dataFields.valueY = "close";
-    series.dataFields.openValueY = "open";
-    series.dataFields.lowValueY = "low";
-    series.dataFields.highValueY = "high";
+    series.dataFields.valueY = "종가";
+    series.dataFields.openValueY = "시가";
+    series.dataFields.lowValueY = "저가";
+    series.dataFields.highValueY = "고가";
     series.simplifiedProcessing = true;
 
     series.riseFromPreviousState.properties.fillOpacity = 1;
@@ -47,7 +47,7 @@ export default class Candle extends React.Component {
     //scrollbar series
     let lineSeries = chart.series.push(new am4charts.LineSeries());
     lineSeries.dataFields.dateX = "date";
-    lineSeries.dataFields.valueY = "close";
+    lineSeries.dataFields.valueY = "종가";
     lineSeries.defaultState.properties.visible = false;
 
     lineSeries.hiddenInLegend = true;
