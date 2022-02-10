@@ -6,7 +6,7 @@
     "@amcharts/amcharts4": "^4.5.3",
     "bizcharts": "^3.5.4",
     "fusioncharts": "^3.13.5-sr.1",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-fusioncharts": "^3.0.1",
